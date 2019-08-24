@@ -22,6 +22,6 @@ install:
 script:
   - echo "this is script section"
   - go test -v ./...
-  - docker build -rm -t hkericyeung/godemo
+  - docker build -t $DOCKER_USERNAME/godemo
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push hkericyeung/godemo
+  - docker push $DOCKER_USERNAME/godemo
