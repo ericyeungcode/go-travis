@@ -12,11 +12,17 @@ notifications:
 
 sudo: required
 
+services: 
+  - docker
+
 install:
   - echo "this is install section"
   - go get github.com/gorilla/websocket
   - go get github.com/stretchr/testify/assert
+  - make image-dev
  
 script:
   - echo "this is script section"
   - go test -v ./...
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - make push-dev  
