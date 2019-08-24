@@ -1,12 +1,21 @@
 language: go
 
 go: 
-  - 1.12
+  - 1.12.x
+
+# Only clone the most recent commit.
+git:
+  depth: 1  
+
+notifications:
+  email: true
 
 sudo: required
 
 install:
-  - echo "install"
+  - echo "this is install section"
+  - go get github.com/gorilla/websocket
  
 script:
-  - echo "script"
+  - echo "this is script section"
+  - go test -v ./...
