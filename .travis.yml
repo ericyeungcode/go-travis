@@ -15,6 +15,7 @@ sudo: required
 install:
   - echo "this is install section"
   - go get github.com/gorilla/websocket
+  - go get github.com/stretchr/testify/assert
  
 script:
   - echo "this is script section"
